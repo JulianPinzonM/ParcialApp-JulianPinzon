@@ -48,15 +48,8 @@ class Estudiante{
         $this -> conexion -> abrir();
         $this -> conexion -> ejecutar($this -> EstudianteDAO -> consultarTodos());
         $estudiantes = array();
-        while(($registro = $this -> conexion -> extraer()) != null){            
-            $ruta = new Ruta($registro[5]);
-            $ruta -> consultar();
-            $this -> ruta = $ruta;
-            $vuelo = new Vuelo($registro[0], $registro[1], $registro[2], $registro[3], $registro[4], $ruta);
-            array_push($vuelos, $vuelo);
-        }
         $this -> conexion -> cerrar();
-        return  $vuelos;
+        return  $estudiantes;
     }
     
 }
